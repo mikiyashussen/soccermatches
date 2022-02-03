@@ -1,3 +1,11 @@
 .scoreTable:hover {
     cursor: pointer;
 }
+
+.winner{
+    background-color: 'green';
+    margin: 3em;
+}
+.loser{
+    background-color: 'red';
+}
