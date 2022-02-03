@@ -19,7 +19,7 @@ const ScoreTable = ({tableData}) => {
     }
     else {
       classNameHome='loser';
-      classNameAway='winer';
+      classNameAway='winner';
     }
   }
 

@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <h2>Sportradar</h2>
-      <h3>Ekstraklasa 20/21</h3>
       <TablePage  />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ScoreTable from '../../components/ScoreTable/ScoreTable'
+import DropDownComp from '../../components/DropDown/DropDownComp';
 // import axios from '../../apis/sportradarApi'
 import data from './data'
 import axios from 'axios';
@@ -9,8 +10,15 @@ class TablePage extends React.Component {
     constructor(){
         super();
         this.state = {
-            scheduleData: {}
+            scheduleData: {},
+            leagueTitle: 'Ekstraklasa 19/20'
         }
+    }
+
+    onSeasonSelect = (event) => {
+        // fetch new data and update state= scheduleData
+        // console.log(event)
+        this.setState({leagueTitle: event})
     }
 
     componentDidMount(){
@@ -23,7 +31,11 @@ class TablePage extends React.Component {
     this.setState({scheduleData: data})
     }
     render(){
-        return <ScoreTable tableData={this.state.scheduleData}/>
+        return  ( <div className='tablePageContainer'>
+            <h3>{this.state.leagueTitle}</h3>
+            <DropDownComp onSeasonSelect={this.onSeasonSelect}/>
+            <ScoreTable tableData={this.state.scheduleData}/>
+        </div>)
     }
 };
 
