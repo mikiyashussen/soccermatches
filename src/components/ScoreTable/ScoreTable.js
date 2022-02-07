@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './ScoreTable.css'
 
-const ScoreTable = ({tableData}) => {
+const ScoreTable = ({tableData, onMatchRowSelect}) => {
     let classNameHome = ''
     let classNameAway = ''
 
@@ -26,24 +26,35 @@ const ScoreTable = ({tableData}) => {
   const createRow = (match,index) => {
     assignClassName(match)
     return (
-            <tr >
+            <tr onClick={() => onMatchRowSelect(match.sport_event.id)}>
                 <td className={classNameHome} 
                 style={{backgroundColor: classNameHome === 'winner' ? 'green' :
                  (classNameHome === 'loser' ? 'red' : 'orange')}}
-                >{match.sport_event.competitors[0].name } </td>
+                >{match.sport_event.competitors[0].name }
+                </td>
                 <td className={classNameAway}
                 style={{backgroundColor: classNameAway === 'winner' ? 'green' :
-                 (classNameAway === 'loser' ? 'red' : 'orange')}}>{match.sport_event.competitors[1].name}</td>
-                <td>{match.sport_event_status.home_score} {'-'} {match.sport_event_status.away_score}</td>
+                 (classNameAway === 'loser' ? 'red' : 'orange')}}>
+                 {match.sport_event.competitors[1].name}
+                 </td>
+                <td>{match.sport_event_status.home_score} {'-'}
+                     {match.sport_event_status.away_score}
+                </td>
                 {/* <td>{match.sport_event_status.period_scores[0].away_score} {'-'} {match.sport_event_status.period_scores[0].away_score}</td>  */}
-                <td>{tableData.schedules[1].sport_event_status.period_scores[0].home_score}{'-'}{tableData.schedules[1].sport_event_status.period_scores[0].away_score}</td>
-                <td>{`${(match.sport_event.start_time).substring(0,10)}  ${(match.sport_event.start_time).substring(12,16)}`}</td>
-                <td>{match.sport_event.venue.name}</td>
+                <td>{tableData.schedules[1].sport_event_status.period_scores[0].home_score}{'-'}
+                    {tableData.schedules[1].sport_event_status.period_scores[0].away_score}
+                </td>
+                <td>{`${(match.sport_event.start_time).substring(0,10)}  
+                    `}
+                </td>
+                <td>
+                    {match.sport_event.venue.name
+                }</td>
             </tr>
           )
   }
   return <div>
-    <Table className='scoreTable'  bordered  variant="dark">
+    <Table  className='scoreTable'>
       <thead>
         <tr>
           <th>Home Team</th>

@@ -1,7 +1,20 @@
 .scoreTable:hover {
     cursor: pointer;
+    /* color: #fff; */
+}
+.scoreTable{
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
 }
 
+.scoreTable > tr{
+    background-color: aliceblue;
+}
+
+td{
+    margin-bottom: 1px;
+}
 .winner{
     background-color: 'green';
     margin: 3em;
