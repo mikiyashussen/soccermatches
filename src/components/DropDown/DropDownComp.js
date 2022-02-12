@@ -13,7 +13,7 @@ const DropDownComp = ({onSeasonSelect}) => {
                 >
               <Dropdown.Item eventKey="sr:season:67233">Ekstraklasa 19/20</Dropdown.Item>
               <Dropdown.Item eventKey="sr:season:77453">Ekstraklasa 20/21</Dropdown.Item>
-              <Dropdown.Item eventKey="sr:season: 84320">Ekstraklasa 21/22</Dropdown.Item>
+              <Dropdown.Item eventKey="sr:season:84320">Ekstraklasa 21/22</Dropdown.Item>
       </DropdownButton>
   </div>;
 };

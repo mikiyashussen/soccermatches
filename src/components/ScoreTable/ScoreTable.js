@@ -26,7 +26,7 @@ const ScoreTable = ({tableData, onMatchRowSelect}) => {
   const createRow = (match,index) => {
     assignClassName(match)
     return (
-            <tr onClick={() => onMatchRowSelect(match.sport_event.id)}>
+            <tr key={match.sport_event.id} onClick={() => onMatchRowSelect(match.sport_event.id)}>
                 <td className={classNameHome} 
                 style={{backgroundColor: classNameHome === 'winner' ? 'green' :
                  (classNameHome === 'loser' ? 'red' : 'orange')}}
@@ -40,7 +40,6 @@ const ScoreTable = ({tableData, onMatchRowSelect}) => {
                 <td>{match.sport_event_status.home_score} {'-'}
                      {match.sport_event_status.away_score}
                 </td>
-                {/* <td>{match.sport_event_status.period_scores[0].away_score} {'-'} {match.sport_event_status.period_scores[0].away_score}</td>  */}
                 <td>{tableData.schedules[1].sport_event_status.period_scores[0].home_score}{'-'}
                     {tableData.schedules[1].sport_event_status.period_scores[0].away_score}
                 </td>

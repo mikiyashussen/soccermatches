@@ -21,7 +21,7 @@ function App() {
   return (
      <div className="App">
         <h2>Sportradar</h2>
-        {showMatchInfo ? <MatchInfoPage goToHome={goToHome} data={matchInfoData} /> :  
+        {showMatchInfo ? <MatchInfoPage goToHome={goToHome} matchData={matchInfoData} /> :  
         <TablePage toggleShowMatchInfo={toggleShowMatchInfo} />
         }
       </div>
